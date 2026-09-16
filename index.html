@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayomiku Olarewaju — Full-stack developer, Lagos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --bg-cover: #16213D;
+    --text-on-cover: #F2EEE3;
+    --text-on-cover-soft: #B9C0D6;
+    --accent-gold: #C79A3E;
+    --bg-page: #F2EEE3;
+    --text-page: #201D18;
+    --text-page-soft: #55504A;
+    --rule: #D8D0BE;
+    --rule-on-cover: rgba(242,238,227,0.22);
+    --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg-cover: #0E1730;
+      --text-on-cover: #ECE6D6;
+      --text-on-cover-soft: #9AA3C0;
+      --accent-gold: #D9AE55;
+      --bg-page: #1C1A15;
+      --text-page: #E8E3D6;
+      --text-page-soft: #B5AE9E;
+      --rule: rgba(232,227,214,0.14);
+      --rule-on-cover: rgba(236,230,214,0.16);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg-cover: #0E1730;
+    --text-on-cover: #ECE6D6;
+    --text-on-cover-soft: #9AA3C0;
+    --accent-gold: #D9AE55;
+    --bg-page: #1C1A15;
+    --text-page: #E8E3D6;
+    --text-page-soft: #B5AE9E;
+    --rule: rgba(232,227,214,0.14);
+    --rule-on-cover: rgba(236,230,214,0.16);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg-page);
+    color: var(--text-page);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ---------- Hero (cover) ---------- */
+
+  .cover {
+    background: var(--bg-cover);
+    color: var(--text-on-cover);
+    padding: 5rem 0 4.5rem;
+  }
+
+  .cover .place {
+    font-size: 0.95rem;
+    color: var(--text-on-cover-soft);
+    margin: 0 0 1.25rem;
+    letter-spacing: 0.01em;
+  }
+
+  .cover h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(2.6rem, 7vw, 4.4rem);
+    line-height: 1.04;
+    margin: 0 0 1.4rem;
+    letter-spacing: -0.01em;
+  }
+
+  .cover p.lede {
+    font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+    max-width: 38rem;
+    color: var(--text-on-cover);
+    margin: 0 0 2.4rem;
+  }
+
+  .cover-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.6rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--rule-on-cover);
+  }
+
+  .cover-links a {
+    text-decoration: none;
+    font-size: 0.98rem;
+    border-bottom: 1px solid var(--accent-gold);
+    padding-bottom: 2px;
+  }
+
+  .cover-links a:hover { color: var(--accent-gold); }
+
+  .available {
+    margin-top: 1.6rem;
+    font-size: 0.92rem;
+    color: var(--text-on-cover-soft);
+  }
+
+  /* ---------- Page sections ---------- */
+
+  section.page { padding: 4rem 0; }
+  section.page + section.page { border-top: 1px solid var(--rule); }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3.4vw, 1.9rem);
+    margin: 0 0 1.6rem;
+    letter-spacing: -0.01em;
+  }
+
+  .lead-para {
+    font-size: 1.08rem;
+    max-width: 40rem;
+  }
+
+  .lead-para p { margin: 0 0 1.1rem; }
+  .lead-para p:last-child { margin-bottom: 0; }
+
+  .soft { color: var(--text-page-soft); }
+
+  /* ---------- Work entries ---------- */
+
+  .work-item {
+    padding: 2.1rem 0;
+  }
+  .work-item:first-child { padding-top: 0; }
+  .work-item + .work-item { border-top: 1px solid var(--rule); }
+
+  .work-item h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.32rem;
+    margin: 0 0 0.35rem;
+  }
+
+  .work-meta {
+    font-size: 0.9rem;
+    color: var(--text-page-soft);
+    margin: 0 0 0.85rem;
+  }
+
+  .work-item p.desc {
+    margin: 0 0 0.9rem;
+    max-width: 38rem;
+    font-size: 1rem;
+  }
+
+  .work-link {
+    font-size: 0.92rem;
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-gold);
+    padding-bottom: 1px;
+  }
+
+  .work-link:hover { color: var(--accent-gold); }
+
+  .work-link + .work-link { margin-left: 1.3rem; }
+
+  /* ---------- Capabilities ---------- */
+
+  .cap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 3rem;
+  }
+
+  .cap-group h4 {
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin: 0 0 0.6rem;
+    color: var(--text-page-soft);
+  }
+
+  .cap-group p {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 560px) {
+    .cap-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Footer (cover, bookend) ---------- */
+
+  footer.cover {
+    padding: 4.5rem 0 3.5rem;
+  }
+
+  footer.cover h2 {
+    color: var(--text-on-cover);
+    margin-bottom: 1.2rem;
+  }
+
+  footer.cover .big-link {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-gold);
+    display: inline-block;
+    margin-bottom: 1.8rem;
+  }
+
+  footer.cover .big-link:hover { color: var(--accent-gold); }
+
+  footer .foot-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--rule-on-cover);
+  }
+
+  footer .foot-links a { text-decoration: none; }
+  footer .foot-links a:hover { color: var(--accent-gold); }
+
+  footer .foot-note {
+    margin-top: 2rem;
+    font-size: 0.88rem;
+    color: var(--text-on-cover-soft);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .cover h1, .cover p.lede, .cover-links { animation: rise 0.7s ease-out both; }
+    .cover p.lede { animation-delay: 0.08s; }
+    .cover-links { animation-delay: 0.16s; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 3px;
+  }
+
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <p class="place">Lagos, Nigeria</p>
+    <h1>Ayomiku Olarewaju</h1>
+    <p class="lede">Full-stack developer. Three years resolving disputes for Lagos State before I started resolving bugs — both jobs came down to figuring out what people actually need, then building something that holds.</p>
+    <div class="cover-links">
+      <a href="mailto:almaroofolarewaju@gmail.com">almaroofolarewaju@gmail.com</a>
+      <a href="https://github.com/ayomikuolarewaju" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/olarewaju-almaroof-26b92919a" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p class="available">Open to contract and full-time work.</p>
+  </div>
+</header>
+
+<section class="page">
+  <div class="wrap">
+    <h2>The throughline</h2>
+    <div class="lead-para">
+      <p>I studied History and International Studies, then took a Master's in Peace and Conflict Resolution, and spent three years at the Lagos State Citizens Mediation Bureau sitting across from people in genuine disagreement, trying to get them to a workable outcome. It's a job made entirely of listening carefully and building trust before you build anything else.</p>
+      <p>I taught myself software development the same way — by building things people actually needed and fixing what broke. I now work across the full stack: React, Next.js, Node.js, Supabase, and enough time spent wiring up Nigerian payment processors to know Paystack's and Flutterwave's edge cases by heart.</p>
+      <p class="soft">Longer term, I'm working toward a PhD that ties the two together — building better digital tools for mediators and peacebuilders.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="wrap">
+    <h2>Selected work</h2>
+
+    <div class="work-item">
+      <h3>Ventariq</h3>
+      <p class="work-meta">Client project for StratX Solutions — live, paying customers · Next.js, Supabase, Stripe</p>
+      <p class="desc">An Event Travel Intelligence platform built for founder Dr. Mojeed Oyeniyi. It sells destination guides — part PDF, part in-app browsing — for major events, starting with the 2026 World Cup and now the US Open. Handles Stripe checkout, automated guide delivery by email, an admin system for managing events and pricing, and a chat widget that answers visitor questions and recommends the right guide.</p>
+      <a class="work-link" href="https://ventariqplanner.netlify.app/" target="_blank" rel="noopener">View live</a>
+    </div>
+
+    <div class="work-item">
+      <h3>Lagos State Citizens Mediation Bureau Platform</h3>
+      <p class="work-meta">Civic tech · Next.js 15, Supabase auth</p>
+      <p class="desc">A digital rebuild of the institution I used to work for: citizen-facing dashboards for filing complaints and booking appointments, an enforcement tracker, a full admin panel, and a content strategy to go with it. The one project where my two backgrounds line up exactly.</p>
+      <a class="work-link" href="https://lagosmediation.netlify.app/" target="_blank" rel="noopener">View live</a>
+    </div>
+
+    <div class="work-item">
+      <h3>Alausa Directory</h3>
+      <p class="work-meta">Civic information platform · Next.js, TypeScript</p>
+      <p class="desc">A directory covering Lagos State ministries, agencies, LGAs, and LCDAs, with live transport data from LAMATA and a local news feed pulled by RSS. Built with SEO and AdSense from the start, on the view that public information only helps if people can actually find it.</p>
+      <a class="work-link" href="https://alausadirectory.com/" target="_blank" rel="noopener">View live</a>
+    </div>
+
+    <div class="work-item">
+      <h3>AfriCart</h3>
+      <p class="work-meta">Unified marketplace, also branded WealthyRealm · Next.js 15, Supabase</p>
+      <p class="desc">A marketplace spanning food delivery, real estate listings, and fashion, with separate vendor, rider, customer, and admin roles, distance-based delivery pricing, and an installable PWA.</p>
+      <a class="work-link" href="https://wealthafricart.netlify.app/" target="_blank" rel="noopener">View live</a>
+      <a class="work-link" href="https://wealthyrealm.netlify.app/" target="_blank" rel="noopener">WealthyRealm build</a>
+    </div>
+
+    <div class="work-item">
+      <h3>RADLAG Alumni Portal</h3>
+      <p class="work-meta">Alumni platform · Next.js, Supabase, custom session auth</p>
+      <p class="desc">An alumni portal with custom session authentication and admin pages, woven through with Yoruba cultural design elements. Includes work hardening the auth layer — moving password hashing server-side where it belongs.</p>
+      <a class="work-link" href="https://radlag.netlify.app/" target="_blank" rel="noopener">View live</a>
+    </div>
+
+    <div class="work-item">
+      <h3>PDF Delivery System</h3>
+      <p class="work-meta">Digital product storefront · Next.js, Supabase, Paystack &amp; Flutterwave</p>
+      <p class="desc">A lean system for selling PDF guides: a per-product landing page, checkout routed through Nigerian payment processors, and an automated email delivery on purchase. Built to be simple to extend — add a product, add a page.</p>
+      <a class="work-link" href="https://pdfsystem.netlify.app/" target="_blank" rel="noopener">View live</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="page">
+  <div class="wrap">
+    <h2>What I work with</h2>
+    <div class="cap-grid">
+      <div class="cap-group">
+        <h4>Frontend</h4>
+        <p>React, Next.js, React Native, Expo, Tailwind CSS</p>
+      </div>
+      <div class="cap-group">
+        <h4>Backend &amp; data</h4>
+        <p>Node.js, Supabase, MongoDB</p>
+      </div>
+      <div class="cap-group">
+        <h4>Payments &amp; delivery</h4>
+        <p>Paystack, Flutterwave, Stripe, transactional email via SMTP</p>
+      </div>
+      <div class="cap-group">
+        <h4>Where I operate</h4>
+        <p>Lagos-based, comfortable building for Nigerian and international payment and delivery contexts</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="wrap">
+    <h2>How I build</h2>
+    <div class="lead-para">
+      <p>I use AI-assisted tooling as a normal part of my workflow — it's how software gets built quickly and well in 2026, and I'd rather be upfront about it than pretend otherwise. The architecture decisions, the debugging, and the judgment calls about what a client actually needs are mine. That's the part that doesn't automate.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="cover">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <a class="big-link" href="mailto:almaroofolarewaju@gmail.com">almaroofolarewaju@gmail.com</a>
+    <div class="foot-links">
+      <a href="https://github.com/ayomikuolarewaju" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/olarewaju-almaroof-26b92919a" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p class="foot-note">Lagos, Nigeria · English &amp; Yoruba</p>
+  </div>
+</footer>
+
+</body>
+</html>
